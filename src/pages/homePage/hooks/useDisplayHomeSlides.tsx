@@ -1,7 +1,8 @@
-import  { ReactElement } from "react";
+import { ReactElement } from "react";
 import AdvertisementCarousel from "../../advertisements";
 import ProductCarousel from "../../products";
 import ContextWinnerCarousel from "../../contextWinner";
+import { v4 as uuidv4 } from "uuid"; // Import the UUID function
 
 interface Slide {
   component: ReactElement;
@@ -15,6 +16,7 @@ const useDisplayHomeSlides = (
   adsCount: number,
   contextCount: number
 ): Slide[] => {
+
   const slides = [
     {
       component: <AdvertisementCarousel key="advertisement" />,
@@ -25,7 +27,7 @@ const useDisplayHomeSlides = (
       time: contextWinnerTime,
     },
     {
-      component: <ProductCarousel key="products" />,
+      component: <ProductCarousel key={uuidv4()} />,
       time: adsCount * productTime,
     },
   ];
