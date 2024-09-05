@@ -1,4 +1,3 @@
-import React from "react";
 import "./index.css";
 import { QRCode } from "react-qrcode-logo";
 
@@ -14,7 +13,7 @@ const ProductCard = (prodData: any) => {
           </div>
           <div className="text">{productDetailedData.productName}</div>
         </div>
-        <div>
+        <div className="product-description-container">
           <div className="product-description">
             {productDetailedData.description}
           </div>

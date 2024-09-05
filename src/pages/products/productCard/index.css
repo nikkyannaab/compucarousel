@@ -61,17 +61,25 @@
 }
 
 .product-description {
-  font-family: "Open Sans Condensed", sans-serif;
-  font-weight: 700;
-  text-align: left;
-  margin: 0;
-  font-size: clamp(80px, 2vw, 133.53px);
-  grid-column: 2;
-  margin-left: 0;
-  padding: 3vh 3vw;
-  box-sizing: border-box;
-  overflow: hidden;
-}
+    font-family: "Open Sans Condensed", sans-serif;
+    font-weight: 700;
+    text-align: left;
+    margin: 0;
+    font-size: clamp(80px, 2vw, 133.53px);
+    grid-column: 2;
+    margin-left: 0;
+    padding: 2vh 3vw;
+    box-sizing: border-box;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 10; /* Adjust to the number of lines to be shown */
+    text-overflow: ellipsis; /* Ensures ellipsis is shown for overflow */
+    line-height: 1.2; /* Adjust for readability */
+    height: 100%;
+  }
+  
+  
 
 .element {
   display: inline-block;
