@@ -60,7 +60,7 @@
   }
   
   /* Adjustments for smaller screens (40-inch TV) */
-  @media (max-width: 3484.8px) {
+  @media (max-width: 3480px) {
     .winner-time-tag {
       width: 30vw;
       height: 4vh;
@@ -165,7 +165,7 @@
   }
   
   /* Adjustments for smaller screens (40-inch TV) */
-  @media (max-width: 3484.8px) {
+  @media (max-width: 3480px) {
     .footer-content {
       font-size: clamp(40px, 6vw, 60px);
       line-height: clamp(50px, 4vw, 70px);
@@ -192,7 +192,7 @@
   }
   
   /* Adjustments for smaller screens (40-inch TV) */
-  @media (max-width: 3484.8px) {
+  @media (max-width: 3480px) {
     .footer-sub-container {
       padding: 6vh 2vw;
     }
@@ -217,7 +217,7 @@
   }
   
   /* Adjustments for smaller screens (40-inch TV) */
-  @media (max-width: 3484.8px) {
+  @media (max-width: 3480px) {
     .sub-footer-content {
       font-size: clamp(40px, 6vw, 60px);
       line-height: clamp(50px, 4vw, 70px);
@@ -259,7 +259,7 @@
       z-index: 10;
     }
   }
-  @media (max-width: 3484.8px) {
+  @media (max-width: 3480px) {
     .image-expo-container-gift {
       width: 90%;
       height: 90%;
@@ -294,7 +294,7 @@
   }
   
   /* Adjustments for smaller screens (40-inch TV) */
-  @media (max-width: 3484.8px) {
+  @media (max-width: 3480px) {
     .winner-details-content {
       font-size: clamp(40px, 6vw, 60px);
       line-height: clamp(50px, 4vw, 70px);

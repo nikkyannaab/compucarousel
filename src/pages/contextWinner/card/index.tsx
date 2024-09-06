@@ -1,14 +1,15 @@
 import React from "react";
 import "./index.css";
-import giftCard from '../../../assets/contextWinners/giftCard.svg'
-import expo from '../../../assets/contextWinners/expo.png'
+import giftCard from "../../../assets/contextWinners/giftCard.svg";
+import expo from "../../../assets/contextWinners/expo.png";
+import { useContextWinnerDetails } from "../service-hooks/useContectWinner";
 
 const ContextWinners: React.FC = () => {
+  const { data: winnerDetails } = useContextWinnerDetails();
+
   return (
     <div className="context-container">
-      <div className="header">
-        Congratulations to Our Expo Wallet Winners!
-      </div>
+      <div className="header">Congratulations to Our Expo Wallet Winners!</div>
 
       <div className="winner-time-tag">
         <div className="winner-time-tag-content">12:00 PM WINNERS</div>
@@ -18,7 +19,11 @@ const ContextWinners: React.FC = () => {
         <div className="winner-details-content">
           <div>
             <div>Attendee Winner</div>
-            <div className="winner-details-content-names">[Winner Name]</div>
+            <div className="winner-details-content-names">
+              {winnerDetails &&
+                winnerDetails[0]?.type === "Attendee" &&
+                winnerDetails[0]?.name}
+            </div>
           </div>
         </div>
 
@@ -26,13 +31,19 @@ const ContextWinners: React.FC = () => {
           <div>
             <div style={{ display: "flex" }}>Exhibitor Winner</div>
             <div className="winner-details-content-names">
-              [Winner Company Name]
+              {winnerDetails &&
+                winnerDetails[1]?.type === "Exh" &&
+                winnerDetails[1]?.name}
             </div>
           </div>
         </div>
 
         <div className="image-container-gift">
-          <img src={giftCard} alt="Gift Card" className="image-expo-container-gift" />
+          <img
+            src={giftCard}
+            alt="Gift Card"
+            className="image-expo-container-gift"
+          />
         </div>
       </div>
 
@@ -42,7 +53,7 @@ const ContextWinners: React.FC = () => {
             Winners Collect Their $100 AMEX Gift
           </div>
           <div className="sub-footer-content">
-            Card in the Central Hall C2 Lobby.
+            {winnerDetails && `Card in the ${winnerDetails[0]?.place}.`}
           </div>
         </div>
       </div>
@@ -50,7 +61,8 @@ const ContextWinners: React.FC = () => {
       <div className="footer">
         <div className="footer-sub-container">
           <div className="footer-content">
-            Your next chance to win is at 4 PM today!
+            {winnerDetails &&
+              ` Your next chance to win is at ${winnerDetails[0]?.time} today!`}
             <br />
             Remember, the more you scan, the better your chances to see your
             name here.
