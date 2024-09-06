@@ -1,5 +1,4 @@
 import "./index.css";
-import { QRCode } from "react-qrcode-logo";
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 const ProductCard = (prodData: any) => {
@@ -29,10 +28,7 @@ const ProductCard = (prodData: any) => {
       <div className="container-qr">
         <div className="text-qr">Scan to Win</div>
         <div className="qr-code">
-          <QRCode
-            value={productDetailedData.qrUrl}
-            style={{ height: "100%", width: "100%" ,borderRadius:"1vw" }}
-          />
+         <img src={productDetailedData.qrUrl} alt="QR code loading" />
         </div>
         <div className="text-qr-winner">Scan to unlock</div>
         <div className="text-qr-winner">exclusive content</div>
