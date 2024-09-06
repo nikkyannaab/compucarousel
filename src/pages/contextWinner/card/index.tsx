@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import React from "react";
 import "./index.css";
 import giftCard from "../../../assets/contextWinners/giftCard.svg";
@@ -7,12 +8,32 @@ import { useContextWinnerDetails } from "../service-hooks/useContectWinner";
 const ContextWinners: React.FC = () => {
   const { data: winnerDetails } = useContextWinnerDetails();
 
+  const attendeeWinners =
+    winnerDetails &&
+    winnerDetails.filter((winner: any) => winner.type === "Attendee");
+  const exhibitorWinners =
+    winnerDetails &&
+    winnerDetails.filter((winner: any) => winner.type === "Exh");
+
+  const messageFormatter = (message: string) => {
+    const normalizedMessage = message.replace(/\\n/g, "\n");
+
+    const messageArray = normalizedMessage
+      .split("\n")
+      .map((line) => line.trim())
+      .filter((line) => line.length > 0);
+
+    return messageArray;
+  };
+
   return (
     <div className="context-container">
       <div className="header">Congratulations to Our Expo Wallet Winners!</div>
 
       <div className="winner-time-tag">
-        <div className="winner-time-tag-content">12:00 PM WINNERS</div>
+        <div className="winner-time-tag-content">
+          {winnerDetails && `${winnerDetails[0]?.time} WINNERS`}
+        </div>
       </div>
 
       <div className="winner-details-container">
@@ -20,9 +41,7 @@ const ContextWinners: React.FC = () => {
           <div>
             <div>Attendee Winner</div>
             <div className="winner-details-content-names">
-              {winnerDetails &&
-                winnerDetails[0]?.type === "Attendee" &&
-                winnerDetails[0]?.name}
+              {attendeeWinners && attendeeWinners[0]?.name}
             </div>
           </div>
         </div>
@@ -31,9 +50,7 @@ const ContextWinners: React.FC = () => {
           <div>
             <div style={{ display: "flex" }}>Exhibitor Winner</div>
             <div className="winner-details-content-names">
-              {winnerDetails &&
-                winnerDetails[1]?.type === "Exh" &&
-                winnerDetails[1]?.name}
+              {exhibitorWinners && exhibitorWinners[0]?.name}
             </div>
           </div>
         </div>
@@ -61,11 +78,10 @@ const ContextWinners: React.FC = () => {
       <div className="footer">
         <div className="footer-sub-container">
           <div className="footer-content">
-            {winnerDetails &&
-              ` Your next chance to win is at ${winnerDetails[0]?.time} today!`}
+            {winnerDetails && messageFormatter(winnerDetails[0]?.message)[0]}
+
             <br />
-            Remember, the more you scan, the better your chances to see your
-            name here.
+            {winnerDetails && messageFormatter(winnerDetails[0]?.message)[1]}
           </div>
         </div>
         <div className="image-footer">

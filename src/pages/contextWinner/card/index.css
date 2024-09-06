@@ -35,7 +35,7 @@
   
   /* WINNER TIME TAG*/
   .winner-time-tag {
-    width: clamp(300px, 30vw, 914.5px);
+    /* width: clamp(300px, 30vw, 914.5px); */
     height: clamp(60px, 10vh, 126.46px);
     top: clamp(100px, 20vh, 468.36px);
     padding: clamp(5px, 2vw, 8.23px) clamp(50px, 5vw, 123.47px);
