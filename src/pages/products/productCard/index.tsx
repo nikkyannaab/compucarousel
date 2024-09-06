@@ -21,7 +21,7 @@ const ProductCard = (prodData: any) => {
         </div>
         <div className="row4">
           <button className="rounded-button">
-            <a className="winner-time-tag-content">{`Booth:${productDetailedData.boothNo}`}</a>
+            <a className="winner-time-tag-content-product">{`Booth:${productDetailedData.boothNo}`}</a>
           </button>
         </div>
       </div>

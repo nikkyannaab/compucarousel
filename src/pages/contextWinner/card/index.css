@@ -101,7 +101,7 @@
   }
   
   /* Adjustments for smaller screens (40-inch TV) */
-  @media (max-width: 3484.8px) {
+  @media (max-width: 3480px) {
     .winner-time-tag-content {
       font-size: clamp(40px, 6vw, 60px);
       line-height: clamp(50px, 4vw, 70px);

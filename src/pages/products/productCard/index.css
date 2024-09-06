@@ -34,11 +34,11 @@
 }
 
 .image-expo-container {
-  width: 60%;
-  height: 60%;
-  margin-top: 2%;
-  margin-bottom: 2%;
-
+  width: clamp(500px, 25vw, 837.3px);
+  height: clamp(500px, 26vw, 858.92px);
+  border-radius: clamp(30px, 2vw, 50px);
+  border-width: clamp(8px, 1.5vw, 16px) 0px 0px 0px;
+  margin-bottom: 1vw;
 }
 
 @media (min-width: 3840px) {
@@ -50,7 +50,7 @@
   }
 }
 
-@media (max-width: 3484.8px) {
+@media (max-width: 3480px) {
   .image-expo-container {
     width: 50%;
     height: 50%;
@@ -67,8 +67,9 @@
 .text-qr {
   font-family: "Open Sans Condensed", sans-serif;
   font-weight: 700;
-  font-size: clamp(80px, 5vw, 133.53px);
-  line-height: clamp(90px, 6vw, 146.89px);
+  font-size: clamp(90px, 7vw, 133.53px);
+  line-height: clamp(100px, 8vw, 146.89px);
+  padding-bottom: 1vw;
   color: yellow;
 }
 
@@ -79,7 +80,7 @@
   }
 }
 
-@media (max-width: 3484.8px) {
+@media (max-width: 3480px) {
   .text-qr {
     font-size: clamp(40px, 6vw, 60px);
     line-height: clamp(50px, 4vw, 70px);
@@ -96,8 +97,8 @@
 .text-qr-winner {
   font-family: "Open Sans Condensed", sans-serif;
   font-weight: 700;
-  font-size: clamp(80px, 5vw, 133.53px);
-  line-height: clamp(90px, 6vw, 146.89px);
+  font-size: clamp(90px, 7vw, 133.53px);
+  line-height: clamp(100px, 8vw, 146.89px);
   color: white;
 }
 
@@ -108,7 +109,7 @@
   }
 }
 
-@media (max-width: 3484.8px) {
+@media (max-width: 3480px) {
   .text-qr-winner {
     font-size: clamp(40px, 6vw, 60px);
     line-height: clamp(50px, 4vw, 70px);
@@ -130,54 +131,73 @@
 }
 .row1 {
   display: grid;
-  grid-template-columns: 40% 60%;
+  grid-template-columns: 30% 70%;
   gap: 10px;
 }
 
 .image-container {
+  /* border: 3px solid #000000;
+  border-radius: 50px !important;
+  overflow: hidden;
+  width: 90%;
+  height: 85%;
+  max-width: 100%;
+  max-height: 100%; */
+
   border: 3px solid #000000;
   border-radius: 50px !important;
   overflow: hidden;
-  width: 85%;
+  width: 90%;
   height: 85%;
   max-width: 100%;
   max-height: 100%;
-
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  padding: 1vh 1vw;
 }
 
 .image-container img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+  max-width: 100%;
+  max-height: 100%;
+  width: auto; 
+  height: auto; 
+  object-fit: contain;
 }
 
 .Product-name {
   display: flex;
-  margin-top: 4%;
-  justify-content: center;
 }
 .product-description {
   overflow: hidden;
   display: -webkit-box;
-  -webkit-line-clamp: 5 !important; 
+  -webkit-line-clamp: 5 !important;
   -webkit-box-orient: vertical;
   text-overflow: ellipsis;
   white-space: normal;
 }
 
-.product-text,
 .product-description,
 .description {
   font-family: "Open Sans Condensed", sans-serif;
   font-weight: 700;
-  font-size: clamp(80px, 5vw, 133.53px);
+  font-size: clamp(80px, 6vw, 123.22px);
   line-height: clamp(90px, 6vw, 146.89px);
   color: #000000;
-  margin-top: 4%;
+  margin-top: 1%;
+}
+
+.product-text {
+  font-family: "Open Sans Condensed", sans-serif;
+  font-weight: 700;
+  font-size: clamp(80px, 6vw, 123.22px);
+  line-height: clamp(90px, 6vw, 146.89px);
+  color: #000000;
+  text-align: left;
 }
 
 @media (min-width: 3840px) {
-
   .product-text,
   .product-description,
   .description {
@@ -186,8 +206,7 @@
   }
 }
 
-@media (max-width: 3484.8px) {
-
+@media (max-width: 3480.8px) {
   .product-text,
   .product-description,
   .description {
@@ -197,7 +216,6 @@
 }
 
 @media (max-width: 1440px) {
-
   .product-text,
   .product-description,
   .description {
@@ -207,16 +225,15 @@
 }
 
 .description {
-  display: -webkit-box; 
+  display: -webkit-box;
   -webkit-box-orient: vertical;
-  -webkit-line-clamp: 5;
-  line-clamp: 5; 
-  overflow: hidden; 
-  text-overflow: ellipsis; 
-  white-space: normal; 
+  -webkit-line-clamp: 4;
+  line-clamp: 5;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: normal;
+  text-align: left;
 }
-
-
 
 .product {
   font-family: "Open Sans Condensed", sans-serif;
@@ -234,7 +251,7 @@
   }
 }
 
-@media (max-width: 3484.8px) {
+@media (max-width: 3480px) {
   .product {
     font-size: clamp(40px, 6vw, 70px);
     line-height: clamp(50px, 4vw, 70px);
@@ -254,7 +271,6 @@
 }
 
 .rounded-button {
-  width: 30%;
   height: 10%;
   padding: clamp(5px, 2vw, 8.23px) clamp(50px, 5vw, 123.47px);
   gap: clamp(4px, 1vw, 6.59px);
@@ -262,14 +278,16 @@
   position: absolute;
   background: black;
   border-radius: 100px;
+  display: flex;
+  justify-content: flex-start;
 }
 
 /* WINNER TIME TAG - CONTENT*/
-.winner-time-tag-content {
+.winner-time-tag-content-product {
   font-family: "Open Sans Condensed", sans-serif;
   font-weight: 700;
-  font-size: clamp(50px, 5vw, 68px);
-  line-height: clamp(60px, 5vw, 100px);
+  font-size: clamp(80px, 6vw, 118.69px);
+  line-height: clamp(120px, 9vw, 178.04px);
   text-align: center;
   color: #ffffff;
   margin: 0;
@@ -277,31 +295,30 @@
 }
 
 @media (min-width: 3840px) {
-  .winner-time-tag-content {
+  .winner-time-tag-content-product {
     font-size: clamp(80px, 4vw, 100px);
     line-height: clamp(90px, 5vw, 130px);
   }
 }
 
-@media (max-width: 3484.8px) {
-  .winner-time-tag-content {
+@media (max-width: 3480px) {
+  .winner-time-tag-content-product {
     font-size: clamp(40px, 6vw, 50px);
     line-height: clamp(50px, 4vw, 70px);
   }
 }
 
 @media (max-width: 1440px) {
-  .winner-time-tag-content {
+  .winner-time-tag-content-product {
     font-size: clamp(15px, 2vw, 40px) !important;
     line-height: clamp(35px, 2vw, 10px) !important;
   }
-
 }
 
 .line {
   width: 100%;
   height: 20px;
-  background-color: #285EC7;
+  background-color: #285ec7;
   position: fixed;
   bottom: 0;
   left: 0;
