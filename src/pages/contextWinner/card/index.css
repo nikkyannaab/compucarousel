@@ -246,21 +246,21 @@
     font-weight: bold;
   }
   
-  .image-expo-container {
+  .image-expo-container-gift {
     width: 80%;
     height: 80%;
     z-index: 10;
   }
   
   @media (min-width: 3840px) {
-    .image-expo-container {
+    .image-expo-container-gift {
       width: 90%;
       height: 90%;
       z-index: 10;
     }
   }
   @media (max-width: 3484.8px) {
-    .image-expo-container {
+    .image-expo-container-gift {
       width: 90%;
       height: 90%;
       z-index: 10;
@@ -268,7 +268,7 @@
   }
   
   @media (max-width: 1440px) {
-    .image-expo-container {
+    .image-expo-container-gift {
       width: 90%;
       height: 90%;
       z-index: 10;

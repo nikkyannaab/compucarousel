@@ -31,8 +31,8 @@ const ContextWinners: React.FC = () => {
           </div>
         </div>
 
-        <div className="image-container">
-          <img src={giftCard} alt="Gift Card" className="image-expo-container" />
+        <div className="image-container-gift">
+          <img src={giftCard} alt="Gift Card" className="image-expo-container-gift" />
         </div>
       </div>
 
