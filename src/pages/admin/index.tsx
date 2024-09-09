@@ -3,11 +3,11 @@ import { useForm } from "react-hook-form";
 import AttendeeDetails from "./components/attendeeDetails";
 import DateTimeBlock from "./components/dateTimeBlock";
 import "./index.css";
-import { useContextWinnerDetails } from "../contextWinner/service-hooks/useContectWinner";
+import { useGetContextWinnerDetails } from "./service-hooks/useGetContextWinners";
 
 const AdminPage = () => {
   const { register, handleSubmit } = useForm();
-  const { data: winnerDetails } = useContextWinnerDetails();
+  const { data: winnerDetails } = useGetContextWinnerDetails();
   console.log("winnerDetails", winnerDetails);
 
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
