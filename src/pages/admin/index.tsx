@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import React, { useState } from "react";
+import { useState } from "react";
 import { useForm } from "react-hook-form";
 import AttendeeDetails from "./components/attendeeDetails";
 import DateTimeBlock from "./components/dateTimeBlock";
@@ -54,16 +54,26 @@ const AdminPage = () => {
     <div className="admin-container">
       <form onSubmit={handleSubmit(onSubmit)}>
         {winnerDetails &&
-          winnerDetails.map((item: any, index: any) => (
-            <div
-              key={index}
-              className="admin-attendee-container"
-              onFocus={() => setCurrentIndex(index)} 
-            >
-              <DateTimeBlock date={item.date} time={item.time} />
-              <AttendeeDetails index={index} register={register} data={item} />
-            </div>
-          ))}
+          // Sort winnerDetails based on date
+          [...winnerDetails]
+            .sort(
+              (a: any, b: any) =>
+                new Date(a.date).getTime() - new Date(b.date).getTime()
+            )
+            .map((item: any, index: any) => (
+              <div
+                key={index}
+                className="admin-attendee-container"
+                onFocus={() => setCurrentIndex(index)}
+              >
+                <DateTimeBlock date={item.date} time={item.time} />
+                <AttendeeDetails
+                  index={index}
+                  register={register}
+                  data={item}
+                />
+              </div>
+            ))}
 
         <div className="card-footer">
           <button type="submit" className="save-button">
