@@ -1,50 +1,62 @@
+import React from "react";
 import { useForm } from "react-hook-form";
 import AttendeeDetails from "./components/attendeeDetails";
+import DateTimeBlock from "./components/dateTimeBlock";
 import "./index.css";
-import { useUpdateWinnerDetails } from "./service-hooks/useUpdateWinner";
+import { useContextWinnerDetails } from "../contextWinner/service-hooks/useContectWinner";
 
 const AdminPage = () => {
-  const { register, handleSubmit, reset } = useForm();
-  const { mutate } = useUpdateWinnerDetails();
+  const { register, handleSubmit } = useForm();
+  const { data: winnerDetails } = useContextWinnerDetails();
+  console.log("winnerDetails", winnerDetails);
 
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const onSubmit = (formData: any) => {
-    const formDataToBePassed = {
-      live: 1,
-      place: formData.place,
-      message: formData.message,
-      name: formData.name,
-      regUid: formData.regUid,
-      time: formData.time,
-      type: formData.type,
-      date: formData.date,
-      iId: formData.type === "Attendee" ? 2 : 1,
-    };
+  const onSubmit = (data: any) => {
+    console.log(data);
 
-    console.log("formDataToBePassed", formDataToBePassed);
+    // const formDataToBePassed = {
+    //     live: 1,
+    //     place: formData.place,
+    //     message: formData.message,
+    //     name: formData.name,
+    //     regUid: formData.regUid,
+    //     time: formData.time,
+    //     type: formData.type,
+    //     date: formData.date,
+    //     iId: formData.type === "Attendee" ? 2 : 1,
+    //   };
 
-    mutate(formDataToBePassed, {
-      onSuccess: (data) => {
-        alert(data?.sErrorMessage);
-        console.log("Data", data?.sErrorMessage);
-        reset();
-      },
-      onError: (error) => {
-        console.log("error", error);
-      },
-    });
+    //   console.log("formDataToBePassed", formDataToBePassed);
+
+    //   mutate(formDataToBePassed, {
+    //     onSuccess: (data) => {
+    //       alert(data?.sErrorMessage);
+    //       console.log("Data", data?.sErrorMessage);
+    //       reset();
+    //     },
+    //     onError: (error) => {
+    //       console.log("error", error);
+    //     },
+    //   });
   };
 
   return (
     <div className="admin-container">
       <form onSubmit={handleSubmit(onSubmit)}>
-        <AttendeeDetails register={register} />
-        {/* Card Footer */}
-        <div className="card-footer">
-          <button type="submit" className="save-button">
-            Save
-          </button>
-        </div>
+        {winnerDetails &&
+          winnerDetails.map(
+            (
+              item: { date: string; time: string },
+              index: React.Key | null | undefined
+            ) => (
+              <div key={index} className="adim-attendee-container">
+                <DateTimeBlock date={item.date} time={item.time} />
+                <AttendeeDetails index={index} register={register} />
+              </div>
+            )
+          )}
+
+        <button type="submit">Save</button>
       </form>
     </div>
   );

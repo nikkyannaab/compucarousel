@@ -1,3 +1,10 @@
+.admin-container {
+  border: 1px solid lightgray;
+  padding: 3vh 3vw;
+  margin: 3vh 3vw;
+  border-radius: 10px;
+}
+
 .date-time-container {
   display: flex;
   justify-content: space-between;
@@ -69,25 +76,6 @@
   padding-right: 6vw;
 }
 
-#snackbar {
-  visibility: hidden;
-  min-width: 250px;
-  margin-left: -125px;
-  background-color: #333;
-  color: #fff;
-  text-align: center;
-  border-radius: 2px;
-  padding: 16px;
-  position: fixed;
-  z-index: 1;
-  left: 50%;
-  bottom: 30px;
-  font-size: 17px;
+.adim-attendee-container {
+  padding-bottom: 3vh;
 }
-
-#snackbar.show {
-  visibility: visible;
-  -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
-  animation: fadein 0.5s, fadeout 0.5s 2.5s;
-}
-

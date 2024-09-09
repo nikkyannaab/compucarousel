@@ -1,58 +1,53 @@
-import React, { useState } from "react";
+import React from "react";
 import { UseFormRegister } from "react-hook-form";
-import "./attendeeDetails.css";
 
 type AttendeeDetailsProps = {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  index: any;
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   register: UseFormRegister<any>;
 };
 
-const AttendeeDetails: React.FC<AttendeeDetailsProps> = ({ register }) => {
-  const [type, setType] = useState<"Attendee" | "Exh">("Attendee");
-
+const AttendeeDetails: React.FC<AttendeeDetailsProps> = ({
+  index,
+  register,
+}) => {
   return (
-    <div className="card">
-      <div className="card-header">
-        <label>Select Type:</label>
-        <select
-          value={type}
-          {...register(`type`)}
-          onChange={(e) => setType(e.target.value as "Attendee" | "Exh")}
-          
-        >
-          <option value="Attendee">Attendee</option>
-          <option value="Exh">Exhibitor</option>
-        </select>
+    <div className="admin-container-attendee-details">
+      <div className="admin-header">Type</div>
+      <div className="admin-header">RegUid</div>
+      <div className="admin-header">Name</div>
+      <div className="admin-header">Message</div>
+      <div className="admin-header">Place</div>
+
+      {/* First Row: Attendee */}
+      <div className="value">Attendee</div>
+      <div className="value">
+        <input type="number" {...register(`attendee.${index}.regUid`)} />
+      </div>
+      <div className="value">
+        <input type="text" {...register(`attendee.${index}.name`)} />
+      </div>
+      <div className="value">
+        <input type="text" {...register(`attendee.${index}.message`)} />
+      </div>
+      <div className="value">
+        <input type="text" {...register(`attendee.${index}.place`)} />
       </div>
 
-      <div className="card-body">
-        {/* Column based on type */}
-        <div className="section">
-          <div className="form-group">
-            <label>Date</label>
-            <input type="date" {...register(`date`)} />
-          </div>
-          <div className="form-group">
-            <label>RegUid</label>
-            <input type="number" {...register(`regUid`)} />
-          </div>
-          <div className="form-group">
-            <label>Time</label>
-            <input type="time" {...register(`time`)} />
-          </div>
-          <div className="form-group">
-            <label>Name</label>
-            <input type="text" {...register(`name`)} />
-          </div>
-          <div className="form-group">
-            <label>Message</label>
-            <input type="text" {...register(`message`)} />
-          </div>
-          <div className="form-group">
-            <label>Place</label>
-            <input type="text" {...register(`place`)} />
-          </div>
-        </div>
+      {/* Second Row: Exh */}
+      <div className="value">Exh</div>
+      <div className="value">
+        <input type="number" {...register(`exh.${index}.regUid`)} />
+      </div>
+      <div className="value">
+        <input type="text" {...register(`exh.${index}.name`)} />
+      </div>
+      <div className="value">
+        <input type="text" {...register(`exh.${index}.message`)} />
+      </div>
+      <div className="value">
+        <input type="text" {...register(`exh.${index}.place`)} />
       </div>
     </div>
   );
