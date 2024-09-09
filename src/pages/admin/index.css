@@ -22,7 +22,7 @@
 
 .admin-container-attendee-details {
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
+  grid-template-columns: 10% 6% 20% 44% 20%;
   text-align: center;
   gap: 0;
   border-left: 1px solid #000;
@@ -73,9 +73,16 @@
 .card-footer {
   display: flex;
   justify-content: flex-end;
-  padding-right: 6vw;
 }
 
 .adim-attendee-container {
   padding-bottom: 3vh;
+}
+
+.value {
+  display: flex;
+  align-items: center; 
+  justify-content: center;
+  box-sizing: border-box; 
+  overflow: hidden;
 }

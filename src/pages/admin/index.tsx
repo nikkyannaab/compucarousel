@@ -51,12 +51,20 @@ const AdminPage = () => {
             ) => (
               <div key={index} className="adim-attendee-container">
                 <DateTimeBlock date={item.date} time={item.time} />
-                <AttendeeDetails index={index} register={register} />
+                <AttendeeDetails
+                  index={index}
+                  register={register}
+                  data={item}
+                />
               </div>
             )
           )}
 
-        <button type="submit">Save</button>
+        <div className="card-footer">
+          <button type="submit" className="save-button">
+            Save
+          </button>
+        </div>
       </form>
     </div>
   );
