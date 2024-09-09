@@ -3,7 +3,7 @@ import AdvertisementCarousel from "../../advertisements";
 import ProductCarousel from "../../products";
 import ContextWinnerCarousel from "../../contextWinner";
 import { v4 as uuidv4 } from "uuid"; // Import the UUID function
-
+// import { useContextWinnerDetails } from "../../contextWinner/service-hooks/useContectWinner";
 interface Slide {
   component: ReactElement;
   time: number;
@@ -16,6 +16,7 @@ const useDisplayHomeSlides = (
   adsCount: number,
   contextCount: number
 ): Slide[] => {
+  // const { data: winnerDetails } = useContextWinnerDetails();
 
   const slides = [
     {
