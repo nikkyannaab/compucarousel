@@ -73,6 +73,7 @@
 .card-footer {
   display: flex;
   justify-content: flex-end;
+  padding-top: 2vh;
 }
 
 .adim-attendee-container {
@@ -81,8 +82,8 @@
 
 .value {
   display: flex;
-  align-items: center; 
+  align-items: center;
   justify-content: center;
-  box-sizing: border-box; 
+  box-sizing: border-box;
   overflow: hidden;
 }

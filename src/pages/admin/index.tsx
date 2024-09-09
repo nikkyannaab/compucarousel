@@ -1,64 +1,69 @@
-import React from "react";
+/* eslint-disable @typescript-eslint/no-explicit-any */
+import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import AttendeeDetails from "./components/attendeeDetails";
 import DateTimeBlock from "./components/dateTimeBlock";
 import "./index.css";
 import { useGetContextWinnerDetails } from "./service-hooks/useGetContextWinners";
+import { useUpdateWinnerDetails } from "./service-hooks/useUpdateWinner";
 
 const AdminPage = () => {
-  const { register, handleSubmit } = useForm();
-  const { data: winnerDetails } = useGetContextWinnerDetails();
-  console.log("winnerDetails", winnerDetails);
+  const { register, handleSubmit, reset } = useForm();
+  const { data: winnerDetails, refetch } = useGetContextWinnerDetails(); // Get refetch from the hook
+  const [currentIndex, setCurrentIndex] = useState<number | null>(null);
+  const { mutate } = useUpdateWinnerDetails();
 
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const onSubmit = (data: any) => {
-    console.log(data);
+  const onSubmit = (formData: any) => {
+    if (currentIndex !== null) {
+      // Get the updated data from the form
+      const updatedData =
+        formData[winnerDetails[currentIndex].type][currentIndex];
 
-    // const formDataToBePassed = {
-    //     live: 1,
-    //     place: formData.place,
-    //     message: formData.message,
-    //     name: formData.name,
-    //     regUid: formData.regUid,
-    //     time: formData.time,
-    //     type: formData.type,
-    //     date: formData.date,
-    //     iId: formData.type === "Attendee" ? 2 : 1,
-    //   };
+      // Merge the updated data with the original data from the GET API
+      const mergedData = {
+        ...winnerDetails[currentIndex],
+        ...updatedData,
+      };
 
-    //   console.log("formDataToBePassed", formDataToBePassed);
+      const formDataToBePassed = {
+        live: 1,
+        place: mergedData?.place,
+        message: mergedData?.message,
+        name: mergedData?.name,
+        regUid: mergedData?.regUid,
+        time: mergedData?.time,
+        type: mergedData?.type,
+        date: mergedData?.date,
+        iId: mergedData?.iId,
+      };
 
-    //   mutate(formDataToBePassed, {
-    //     onSuccess: (data) => {
-    //       alert(data?.sErrorMessage);
-    //       console.log("Data", data?.sErrorMessage);
-    //       reset();
-    //     },
-    //     onError: (error) => {
-    //       console.log("error", error);
-    //     },
-    //   });
+      mutate(formDataToBePassed, {
+        onSuccess: (data: any) => {
+          alert(data?.sErrorMessage);
+          refetch(); // Refetch data from the API after success
+          reset();
+        },
+        onError: (error: any) => {
+          console.log("error", error);
+        },
+      });
+    }
   };
 
   return (
     <div className="admin-container">
       <form onSubmit={handleSubmit(onSubmit)}>
         {winnerDetails &&
-          winnerDetails.map(
-            (
-              item: { date: string; time: string },
-              index: React.Key | null | undefined
-            ) => (
-              <div key={index} className="adim-attendee-container">
-                <DateTimeBlock date={item.date} time={item.time} />
-                <AttendeeDetails
-                  index={index}
-                  register={register}
-                  data={item}
-                />
-              </div>
-            )
-          )}
+          winnerDetails.map((item: any, index: any) => (
+            <div
+              key={index}
+              className="admin-attendee-container"
+              onFocus={() => setCurrentIndex(index)} 
+            >
+              <DateTimeBlock date={item.date} time={item.time} />
+              <AttendeeDetails index={index} register={register} data={item} />
+            </div>
+          ))}
 
         <div className="card-footer">
           <button type="submit" className="save-button">

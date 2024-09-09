@@ -4,5 +4,5 @@ export const DEFAULT_VALUES = {
   CONTEXT_SLIDES_FREQUENCY: "context_frequency",
   PRODUCT_COUNT: "ads",
   CONTEXT_COUNT: "context",
-  DEFAULT_TIMER:3
+  DEFAULT_TIMER: 12,
 };

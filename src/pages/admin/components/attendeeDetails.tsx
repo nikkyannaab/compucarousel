@@ -26,49 +26,34 @@ const AttendeeDetails: React.FC<AttendeeDetailsProps> = ({
         <input
           type="number"
           {...register(`${data?.type}.${index}.regUid`)}
-          value={data?.regUid}
-          style={{width:"100%"}}
+          defaultValue={data?.regUid}
+          style={{ width: "100%" }}
         />
       </div>
       <div className="value">
         <input
           type="text"
           {...register(`${data?.type}.${index}.name`)}
-          value={data?.name}
-          style={{width:"100%"}}
+          defaultValue={data?.name}
+          style={{ width: "100%" }}
         />
       </div>
       <div className="value">
         <input
           type="text"
           {...register(`${data?.type}.${index}.message`)}
-          value={data?.message}
-          style={{width:"100%" , height:"10vh"}}
+          defaultValue={data?.message}
+          style={{ width: "100%", height: "10vh" }}
         />
       </div>
       <div className="value">
         <input
           type="text"
           {...register(`${data?.type}.${index}.place`)}
-          value={data?.place}
-          style={{width:"100%"}}
+          defaultValue={data?.place}
+          style={{ width: "100%" }}
         />
       </div>
-
-      {/* Second Row: Exh */}
-      {/* <div className="value">Exh</div>
-      <div className="value">
-        <input type="number" {...register(`exh.${index}.regUid`)} />
-      </div>
-      <div className="value">
-        <input type="text" {...register(`exh.${index}.name`)} />
-      </div>
-      <div className="value">
-        <input type="text" {...register(`exh.${index}.message`)} />
-      </div>
-      <div className="value">
-        <input type="text" {...register(`exh.${index}.place`)} />
-      </div> */}
     </div>
   );
 };
