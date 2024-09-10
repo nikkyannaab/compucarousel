@@ -39,7 +39,7 @@ const useDisplayHomeSlides = (
   });
 
   // Generate a large number of slides to simulate infinity
-  const numberOfSlides = 1000000; // Adjust as needed for smoother experience
+  const numberOfSlides = 10; // Adjust as needed for smoother experience
   const infiniteSlides = Array.from(
     { length: numberOfSlides },
     (_, i) => slides[i % slides.length]
