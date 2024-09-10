@@ -1,5 +1,6 @@
+import "./index.css";
+import expo from "../../../assets/contextWinners/expo.png";
 
-import "./index.css"; 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 const ProductCard = (prodData: any) => {
   const productDetailedData = prodData.productData;
@@ -15,9 +16,7 @@ const ProductCard = (prodData: any) => {
           </div>
         </div>
         <div className="product-description">
-          <div className="description">
-          {productDetailedData.description}
-          </div>
+          <div className="description">{productDetailedData.description}</div>
         </div>
         <div className="row4">
           <button className="rounded-button">
@@ -31,13 +30,16 @@ const ProductCard = (prodData: any) => {
           <div className="text-qr">Scan to Win</div>
           <div className="qr-code">
             <img
-             src={productDetailedData.qrUrl}
+              src={productDetailedData.qrUrl}
               alt="QR Code"
               className="image-expo-container"
             />
           </div>
           <div className="text-qr-winner">Scan to unlock</div>
           <div className="text-qr-winner">exclusive content</div>
+          <div className="expo-image">
+            <img src={expo} alt="Product Image" className="Product-expo-Image" />
+          </div>
         </div>
       </div>
       <div className="line"></div>
