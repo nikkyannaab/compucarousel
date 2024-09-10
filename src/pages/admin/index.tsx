@@ -52,7 +52,7 @@ const AdminPage = () => {
         console.log("updatedData", updatedData);
 
         const formDataToBePassed = {
-          live: 1,
+          live: updatedData?.live == true ? 1 : 0,
           place: updatedData?.place,
           message: updatedData?.message,
           name: updatedData?.name,

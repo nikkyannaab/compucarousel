@@ -20,6 +20,7 @@ const AttendeeDetails: React.FC<AttendeeDetailsProps> = ({
       <div className="admin-header">Name</div>
       <div className="admin-header">Message</div>
       <div className="admin-header">Place</div>
+      <div className="admin-header">Live</div>
 
       <div className="value">{data?.type}</div>
       <div className="value">
@@ -51,6 +52,14 @@ const AttendeeDetails: React.FC<AttendeeDetailsProps> = ({
           type="text"
           {...register(`${data?.type}.${index}.place`)}
           defaultValue={data?.place}
+          style={{ width: "100%" }}
+        />
+      </div>
+      <div className="value">
+        <input
+          type="checkbox"
+          {...register(`${data?.type}.${index}.live`)} 
+          defaultChecked={data?.live || false} 
           style={{ width: "100%" }}
         />
       </div>

@@ -22,7 +22,7 @@
 
 .admin-container-attendee-details {
   display: grid;
-  grid-template-columns: 10% 6% 20% 44% 20%;
+  grid-template-columns: 10% 6% 20% 38% 20% 6% ;
   text-align: center;
   gap: 0;
   border-left: 1px solid #000;
