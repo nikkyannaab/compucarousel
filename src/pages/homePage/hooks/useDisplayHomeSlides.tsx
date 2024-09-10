@@ -1,4 +1,4 @@
-import { ReactElement } from "react";
+import { ReactElement, useEffect } from "react";
 import AdvertisementCarousel from "../../advertisements";
 import ProductCarousel from "../../products";
 import ContextWinnerCarousel from "../../contextWinner";
@@ -17,7 +17,7 @@ const useDisplayHomeSlides = (
   adsCount: number,
   contextCount: number
 ): Slide[] => {
-  const { data: winnerDetails } = useContextWinnerDetails();
+  const { data: winnerDetails ,refetch} = useContextWinnerDetails();
 
   const slides: Slide[] = [
     {
@@ -32,6 +32,16 @@ const useDisplayHomeSlides = (
       time: contextWinnerTime,
     });
   }
+
+//temp fix by NA
+  useEffect(() => {
+    const intervalId = setInterval(() => {
+      refetch();
+    }, productTime ); // 2000 ms = 2 seconds
+
+    // Cleanup function to clear the interval when the component unmounts
+    return () => clearInterval(intervalId);
+  }, [refetch]); // Ensure
 
   slides.push({
     component: <ProductCarousel key={uuidv4()} />,
