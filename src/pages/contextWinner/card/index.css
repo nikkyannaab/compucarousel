@@ -1,355 +1,299 @@
 .context-container {
-    width: 100%;
-    height: 100vh;
-    display: grid;
-    grid-template-rows: 20% 35% 25% 20%;
-    grid-template-columns: 100%;
-  }
-  
-  /* HEADER */
+  width: 100%;
+  height: 100vh;
+  display: grid;
+  grid-template-rows: 20% 35% 25% 20%;
+  grid-template-columns: 100%;
+}
+
+/* HEADER */
+.header {
+  font-family: "Open Sans Condensed", sans-serif;
+  font-weight: 700;
+  font-size: clamp(50px, 4vw, 168px);
+  line-height: 1.1;
+  color: #604527;
+  white-space: nowrap;
+  overflow: hidden;
+  max-width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  padding: 5vh 3vw;
+}
+@media (max-width: 1200px) {
   .header {
-    font-family: "Open Sans Condensed", sans-serif;
-    font-weight: 700;
-    font-size: clamp(50px, 4vw, 168px);
-    line-height: 1.1;
-    color: #604527;
-    white-space: nowrap;
-    overflow: hidden;
-    max-width: 100%;
-    display: flex;
-    justify-content: flex-start;
-    padding: 5vh 3vw;
+    padding: 3vh 3vw;
   }
-  @media (max-width: 1200px) {
-    .header {
-      padding: 3vh 3vw;
-    }
+}
+
+@media (max-width: 1440px) {
+  .header {
+    font-size: clamp(20px, 3vw, 50px) !important;
+    line-height: clamp(35px, 2vw, 10px) !important;
   }
-  
-  @media (max-width: 1440px) {
-    .header {
-      font-size: clamp(20px, 3vw, 50px) !important;
-      line-height: clamp(35px, 2vw, 10px) !important;
-    }
-  }
-  
-  /* WINNER TIME TAG*/
-  .winner-time-tag {
-    /* width: clamp(300px, 30vw, 914.5px); */
-    height: clamp(60px, 10vh, 126.46px);
-    top: clamp(100px, 20vh, 468.36px);
-    padding: clamp(5px, 2vw, 8.23px) clamp(50px, 5vw, 123.47px);
-    gap: clamp(4px, 1vw, 6.59px);
-    border-radius: 0px clamp(20px, 10vw, 65.85px) clamp(20px, 10vw, 65.85px) 0px;
-    opacity: 1;
-    position: absolute;
-    background: #9c7236;
-    border-radius: 0px 10vw 10vw 0px;
-  }
-  
-  /* Adjustments for larger screens (50-inch TV) */
-  @media (min-width: 3840px) {
-    .winner-time-tag {
-      width: 30vw;
-      height: 4vh;
-      top: 18vh;
-      padding: 2vw 5vw;
-      gap: 1vw;
-      border-radius: 0px 10vw 10vw 0px;
-    }
-  }
-  
-  /* Adjustments for smaller screens (40-inch TV) */
-  @media (max-width: 3480px) {
-    .winner-time-tag {
-      width: 30vw;
-      height: 4vh;
-      top: 20vh;
-      padding: 2vw 5vw;
-      gap: 1vw;
-      border-radius: 0px 10vw 10vw 0px;
-    }
-  }
-  
-  @media (max-width: 1440px) {
-    .winner-time-tag  {
-      width: 25%;
-      height: 2%;
-    }
-  }
-  
-  
-  
-  /* WINNER TIME TAG - CONTENT*/
-  .winner-time-tag-content {
-    font-family: "Open Sans Condensed", sans-serif;
-    font-weight: 700;
-    font-size: clamp(50px, 5vw, 88px);
-    line-height: clamp(60px, 5vw, 100px);
-    text-align: center;
-    color: #ffffff;
-    margin: 0;
-    overflow-wrap: break-word;
-  }
-  
-  /* Adjustments for larger screens (50-inch TV) */
-  @media (min-width: 3840px) {
-    .winner-time-tag-content {
-      font-size: clamp(80px, 4vw, 120px);
-      line-height: clamp(90px, 5vw, 130px);
-    }
-  }
-  
-  /* Adjustments for smaller screens (40-inch TV) */
-  @media (max-width: 3480px) {
-    .winner-time-tag-content {
-      font-size: clamp(40px, 6vw, 60px);
-      line-height: clamp(50px, 4vw, 70px);
-    }
-  }
-  
-  @media (max-width: 1440px) {
-    .winner-time-tag-content {
-      font-size: clamp(20px, 2vw, 50px) !important;
-      line-height: clamp(35px, 2vw, 10px) !important;
-    }
-    
-  }
-  
-  /* GRADIENT PART*/
-  .sub-footer {
-    background: linear-gradient(
-      0deg,
-      rgba(220, 174, 88, 0) 12.72%,
-      rgba(195, 167, 126, 0.65) 102.53%
-    );
-    display: flex;
-    align-items: center;
-    position: relative;
-  }
-  
-  /* FOOTER*/
-  .footer {
-    background-color: #285ec7;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 2%;
-  }
-  
-  /* FOOTER CONTENT */
+}
+
+/* WINNER TIME TAG*/
+.winner-time-tag {
+  width: 33%;
+  height: 8%;
+  top: clamp(100px, 20vh, 468.36px);
+  padding: clamp(5px, 2vw, 8.23px) clamp(50px, 5vw, 123.47px);
+  gap: clamp(4px, 1vw, 6.59px);
+  border-radius: 0px clamp(20px, 10vw, 65.85px) clamp(20px, 10vw, 65.85px) 0px;
+  opacity: 1;
+  position: absolute;
+  background: #9c7236;
+  border-radius: 0px 10vw 10vw 0px;
+  align-items: center;
+  display: flex;
+}
+
+
+/* WINNER TIME TAG - CONTENT*/
+.winner-time-tag-content {
+  font-family: "Open Sans Condensed", sans-serif;
+  font-weight: 700;
+  font-size: 110px;
+  line-height: clamp(60px, 5vw, 100px);
+  text-align: center;
+  color: #ffffff;
+  margin: 0;
+  overflow-wrap: break-word;
+}
+
+/* GRADIENT PART*/
+.sub-footer {
+  background: linear-gradient(
+    0deg,
+    rgba(220, 174, 88, 0) 12.72%,
+    rgba(195, 167, 126, 0.65) 102.53%
+  );
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+/* FOOTER*/
+.footer {
+  background-color: #285ec7;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2%;
+}
+
+/* FOOTER CONTENT */
+.footer-content {
+  font-family: "Open Sans Condensed", sans-serif;
+  font-size: clamp(50px, 5vw, 88px);
+  line-height: clamp(60px, 5vw, 100px);
+  color: #ffffff;
+  overflow-wrap: break-word;
+  display: flex;
+  font-weight: bold;
+}
+
+.image-footer {
+  max-width: 377px;
+  max-height: 355px;
+}
+.image-expo-footer {
+  max-width: 277px;
+  max-height: 305px;
+}
+/* Adjustments for larger screens (50-inch TV) */
+@media (min-width: 3840px) {
   .footer-content {
-    font-family: "Open Sans Condensed", sans-serif;
-    font-size: clamp(50px, 5vw, 88px);
-    line-height: clamp(60px, 5vw, 100px);
-    color: #ffffff;
-    overflow-wrap: break-word;
-    display: flex;
-    font-weight: bold;
+    font-size: clamp(80px, 4vw, 120px);
+    line-height: clamp(90px, 5vw, 100px);
   }
-  
-  .image-footer {
-    max-width: 377px;
-    max-height: 355px;
+}
+
+/* Adjustments for smaller screens (40-inch TV) */
+@media (max-width: 3480px) {
+  .footer-content {
+    font-size: clamp(40px, 6vw, 60px);
+    line-height: clamp(50px, 4vw, 70px);
   }
-  .image-expo-footer {
-    max-width: 277px;
-    max-height: 305px;
+}
+
+@media (max-width: 1440px) {
+  .footer-content {
+    font-size: clamp(20px, 1.5vw, 40px) !important;
+    line-height: clamp(35px, 2vw, 10px) !important;
   }
-  /* Adjustments for larger screens (50-inch TV) */
-  @media (min-width: 3840px) {
-    .footer-content {
-      font-size: clamp(80px, 4vw, 120px);
-      line-height: clamp(90px, 5vw, 100px);
-    }
-  }
-  
-  /* Adjustments for smaller screens (40-inch TV) */
-  @media (max-width: 3480px) {
-    .footer-content {
-      font-size: clamp(40px, 6vw, 60px);
-      line-height: clamp(50px, 4vw, 70px);
-    }
-  }
-  
-  @media (max-width: 1440px) {
-    .footer-content {
-      font-size: clamp(20px, 1.5vw, 40px) !important;
-      line-height: clamp(35px, 2vw, 10px) !important;
-    }
-  }
-  
-  /* FOOTER SUB CONTAINER */
+}
+
+/* FOOTER SUB CONTAINER */
+.footer-sub-container {
+  padding: 5vh 3vw;
+}
+
+/* Adjustments for larger screens (50-inch TV) */
+@media (min-width: 3840px) {
   .footer-sub-container {
-    padding: 5vh 3vw;
+    padding: 7vh 1vw;
   }
-  
-  /* Adjustments for larger screens (50-inch TV) */
-  @media (min-width: 3840px) {
-    .footer-sub-container {
-      padding: 7vh 1vw;
-    }
+}
+
+/* Adjustments for smaller screens (40-inch TV) */
+@media (max-width: 3480px) {
+  .footer-sub-container {
+    padding: 6vh 2vw;
   }
-  
-  /* Adjustments for smaller screens (40-inch TV) */
-  @media (max-width: 3480px) {
-    .footer-sub-container {
-      padding: 6vh 2vw;
-    }
-  }
-  
-  /* SUB FOOTER CONTENT */
+}
+
+/* SUB FOOTER CONTENT */
+.sub-footer-content {
+  font-family: "Open Sans Condensed", sans-serif;
+  font-size: clamp(50px, 5vw, 88px);
+  line-height: clamp(60px, 5vw, 100px);
+  color: #000000;
+  overflow-wrap: break-word;
+  display: flex;
+}
+
+/* Adjustments for larger screens (50-inch TV) */
+@media (min-width: 3840px) {
   .sub-footer-content {
-    font-family: "Open Sans Condensed", sans-serif;
-    font-size: clamp(50px, 5vw, 88px);
-    line-height: clamp(60px, 5vw, 100px);
-    color: #000000;
-    overflow-wrap: break-word;
-    display: flex;
+    font-size: clamp(80px, 4vw, 120px);
+    line-height: clamp(90px, 5vw, 100px);
   }
-  
-  /* Adjustments for larger screens (50-inch TV) */
-  @media (min-width: 3840px) {
-    .sub-footer-content {
-      font-size: clamp(80px, 4vw, 120px);
-      line-height: clamp(90px, 5vw, 100px);
-    }
+}
+
+/* Adjustments for smaller screens (40-inch TV) */
+@media (max-width: 3480px) {
+  .sub-footer-content {
+    font-size: clamp(40px, 6vw, 60px);
+    line-height: clamp(50px, 4vw, 70px);
   }
-  
-  /* Adjustments for smaller screens (40-inch TV) */
-  @media (max-width: 3480px) {
-    .sub-footer-content {
-      font-size: clamp(40px, 6vw, 60px);
-      line-height: clamp(50px, 4vw, 70px);
-    }
+}
+
+@media (max-width: 1440px) {
+  .sub-footer-content {
+    font-size: clamp(20px, 2vw, 50px) !important;
+    line-height: clamp(35px, 2vw, 10px) !important;
   }
-  
-  @media (max-width: 1440px) {
-    .sub-footer-content {
-      font-size: clamp(20px, 2vw, 50px) !important;
-      line-height: clamp(35px, 2vw, 10px) !important;
-    }
-  }
-  
-  .sub-footer-content-container {
-    padding-left: 2.85vw;
-    font-weight: bold;
-  }
-  
-  /* WINNER DETAILS */
-  .winner-details-container {
-    z-index: 10;
-    display: grid;
-    grid-template-columns: 25% 40% 35%;
-    padding-top: 16vh;
-    padding-left: 3vw;
-    font-weight: bold;
-  }
-  
+}
+
+.sub-footer-content-container {
+  padding-left: 2.85vw;
+  font-weight: bold;
+}
+
+/* WINNER DETAILS */
+.winner-details-container {
+  z-index: 10;
+  display: grid;
+  grid-template-columns: 25% 40% 35%;
+  padding-top: 16vh;
+  padding-left: 3vw;
+  font-weight: bold;
+}
+
+.image-expo-container-gift {
+  width: 80%;
+  height: 80%;
+  z-index: 10;
+}
+
+@media (min-width: 3840px) {
   .image-expo-container-gift {
-    width: 80%;
-    height: 80%;
+    width: 90%;
+    height: 90%;
     z-index: 10;
   }
-  
-  @media (min-width: 3840px) {
-    .image-expo-container-gift {
-      width: 90%;
-      height: 90%;
-      z-index: 10;
-    }
+}
+@media (max-width: 3480px) {
+  .image-expo-container-gift {
+    width: 90%;
+    height: 90%;
+    z-index: 10;
   }
-  @media (max-width: 3480px) {
-    .image-expo-container-gift {
-      width: 90%;
-      height: 90%;
-      z-index: 10;
-    }
+}
+
+@media (max-width: 1440px) {
+  .image-expo-container-gift {
+    width: 90%;
+    height: 90%;
+    z-index: 10;
   }
-  
-  @media (max-width: 1440px) {
-    .image-expo-container-gift {
-      width: 90%;
-      height: 90%;
-      z-index: 10;
-     
-    }
-  }
-  /* WINNER DETAILS CONTENT */
+}
+/* WINNER DETAILS CONTENT */
+.winner-details-content {
+  font-family: "Open Sans Condensed", sans-serif;
+  font-size: clamp(50px, 5vw, 88px);
+  line-height: clamp(60px, 5vw, 100px);
+  color: #847153;
+  overflow-wrap: break-word;
+  display: flex;
+}
+
+/* Adjustments for larger screens (50-inch TV) */
+@media (min-width: 3840px) {
   .winner-details-content {
-    font-family: "Open Sans Condensed", sans-serif;
-    font-size: clamp(50px, 5vw, 88px);
-    line-height: clamp(60px, 5vw, 100px);
-    color: #847153;
-    overflow-wrap: break-word;
-    display: flex;
-  }
-  
-  /* Adjustments for larger screens (50-inch TV) */
-  @media (min-width: 3840px) {
-    .winner-details-content {
-      font-size: clamp(80px, 4vw, 90px);
-      line-height: clamp(90px, 5vw, 130px);
-    }
-  }
-  
-  /* Adjustments for smaller screens (40-inch TV) */
-  @media (max-width: 3480px) {
-    .winner-details-content {
-      font-size: clamp(40px, 6vw, 60px);
-      line-height: clamp(50px, 4vw, 70px);
-    }
-  }
-  
-  @media (max-width: 1440px) {
-    .winner-details-content {
-      font-size: clamp(20px, 2vw, 40px) !important;
-      line-height: clamp(35px, 2vw, 10px) !important;
-    }
-  }
-  @media (max-width: 1440px) {
-    .winner-details-content-names {
-      font-size: clamp(20px, 2vw, 50px) !important;
-      line-height: clamp(35px, 2vw, 10px) !important;
-    }
-  }
-  
-  .winner-details-content-names {
-    display: flex;
-    text-align: start;
-    color: #000000;
-    font-size: clamp(50px, 2vw, 120px);
+    font-size: clamp(80px, 4vw, 90px);
     line-height: clamp(90px, 5vw, 130px);
   }
-  /* Adjustments for larger screens (50-inch TV) */
-  @media (min-width: 3840px) {
-    .winner-details-content-names {
-      font-size: clamp(80px, 4vw, 120px);
-      line-height: clamp(90px, 5vw, 130px);
-    }
+}
+
+/* Adjustments for smaller screens (40-inch TV) */
+@media (max-width: 3480px) {
+  .winner-details-content {
+    font-size: clamp(40px, 6vw, 60px);
+    line-height: clamp(50px, 4vw, 70px);
   }
-  
-  @media (max-width: 1440px) {
-    .image-expo-footer {
-      width: 40%;
-    }
+}
+
+@media (max-width: 1440px) {
+  .winner-details-content {
+    font-size: clamp(20px, 2vw, 40px) !important;
+    line-height: clamp(35px, 2vw, 10px) !important;
   }
-  
-  @media (min-width: 768px) {
-    .container {
-      max-width: 100%;
-    }
+}
+@media (max-width: 1440px) {
+  .winner-details-content-names {
+    font-size: clamp(20px, 2vw, 50px) !important;
+    line-height: clamp(35px, 2vw, 10px) !important;
   }
-  
-  @media (min-width: 1024px) {
-    .container {
-      max-width: 90%;
-    }
+}
+
+.winner-details-content-names {
+  display: flex;
+  text-align: start;
+  color: #000000;
+  font-size: clamp(50px, 2vw, 120px);
+  line-height: clamp(90px, 5vw, 130px);
+}
+/* Adjustments for larger screens (50-inch TV) */
+@media (min-width: 3840px) {
+  .winner-details-content-names {
+    font-size: clamp(80px, 4vw, 120px);
+    line-height: clamp(90px, 5vw, 130px);
   }
-  
-  @media (min-width: 1920px) {
-    .container {
-      max-width: 70%;
-    }
+}
+
+@media (max-width: 1440px) {
+  .image-expo-footer {
+    width: 40%;
   }
-  
+}
+
+@media (min-width: 768px) {
+  .container {
+    max-width: 100%;
+  }
+}
+
+@media (min-width: 1024px) {
+  .container {
+    max-width: 90%;
+  }
+}
+
+@media (min-width: 1920px) {
+  .container {
+    max-width: 70%;
+  }
+}
