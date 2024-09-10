@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useForm } from "react-hook-form";
 import AttendeeDetails from "./components/attendeeDetails";
 import DateTimeBlock from "./components/dateTimeBlock";
@@ -10,43 +10,70 @@ import { useUpdateWinnerDetails } from "./service-hooks/useUpdateWinner";
 const AdminPage = () => {
   const { register, handleSubmit, reset } = useForm();
   const { data: winnerDetails, refetch } = useGetContextWinnerDetails(); // Get refetch from the hook
-  const [currentIndex, setCurrentIndex] = useState<number | null>(null);
+  const [currentIId, setCurrentIId] = useState<number | null>(null); // Use iId instead of index for uniqueness
   const { mutate } = useUpdateWinnerDetails();
 
+  // Function to reset the form when the iId changes or on form submit
+  useEffect(() => {
+    if (currentIId !== null && winnerDetails) {
+      const selectedData = winnerDetails.find(
+        (winner: any) => winner.iId === currentIId
+      );
+
+      // Reset the form fields with the current data
+      if (selectedData) {
+        reset({
+          [selectedData.type]: {
+            place: selectedData.place,
+            message: selectedData.message,
+            name: selectedData.name,
+            regUid: selectedData.regUid,
+            time: selectedData.time,
+            type: selectedData.type,
+            date: selectedData.date,
+          },
+        });
+      }
+    }
+  }, [currentIId, winnerDetails, reset]);
+
   const onSubmit = (formData: any) => {
-    if (currentIndex !== null) {
-      // Get the updated data from the form
-      const updatedData =
-        formData[winnerDetails[currentIndex].type][currentIndex];
+    if (currentIId !== null && winnerDetails && winnerDetails.length > 0) {
+      // Find the matched winner using iId
+      const matchedWinner = winnerDetails.find(
+        (winner: any) => winner.iId === currentIId
+      );
 
-      // Merge the updated data with the original data from the GET API
-      const mergedData = {
-        ...winnerDetails[currentIndex],
-        ...updatedData,
-      };
+      console.log("matchedWinner", matchedWinner);
 
-      const formDataToBePassed = {
-        live: 1,
-        place: mergedData?.place,
-        message: mergedData?.message,
-        name: mergedData?.name,
-        regUid: mergedData?.regUid,
-        time: mergedData?.time,
-        type: mergedData?.type,
-        date: mergedData?.date,
-        iId: mergedData?.iId,
-      };
+      if (matchedWinner) {
+        // Access formData using matchedWinner's type and iId for consistency
+        const updatedData = formData[matchedWinner?.type][currentIId];
+        console.log("updatedData", updatedData);
 
-      mutate(formDataToBePassed, {
-        onSuccess: (data: any) => {
-          alert(data?.sErrorMessage);
-          refetch(); // Refetch data from the API after success
-          reset();
-        },
-        onError: (error: any) => {
-          console.log("error", error);
-        },
-      });
+        const formDataToBePassed = {
+          live: 1,
+          place: updatedData?.place,
+          message: updatedData?.message,
+          name: updatedData?.name,
+          regUid: updatedData?.regUid,
+          time: matchedWinner?.time,
+          type: matchedWinner?.type,
+          date: matchedWinner?.date,
+          iId: matchedWinner?.iId,
+        };
+
+        mutate(formDataToBePassed, {
+          onSuccess: (data: any) => {
+            alert(data?.sErrorMessage);
+            refetch(); // Refetch data from the API after success
+            reset(); // Reset the form after success
+          },
+          onError: (error: any) => {
+            console.log("error", error);
+          },
+        });
+      }
     }
   };
 
@@ -60,15 +87,15 @@ const AdminPage = () => {
               (a: any, b: any) =>
                 new Date(a.date).getTime() - new Date(b.date).getTime()
             )
-            .map((item: any, index: any) => (
+            .map((item: any) => (
               <div
-                key={index}
+                key={item.iId} // Use iId for key
                 className="admin-attendee-container"
-                onFocus={() => setCurrentIndex(index)}
+                onFocus={() => setCurrentIId(item.iId)} // Track the current focused item using iId
               >
                 <DateTimeBlock date={item.date} time={item.time} />
                 <AttendeeDetails
-                  index={index}
+                  index={item.iId} // Use iId for the index here
                   register={register}
                   data={item}
                 />
